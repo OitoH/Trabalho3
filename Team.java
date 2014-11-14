@@ -31,7 +31,7 @@ public class Team {
 	}
 
 	public String toString() {
-		return "Time: " + name + "\nCor: " + Color.getColorName(color) + "\n";
+		return "Time: " + name + "\nCor: " + color.getColorName() + "\n";
 	}
 
 	//Esta resolveBattle dá resultados para ambas as classes, o que dispensa uma chamada para cada classe.

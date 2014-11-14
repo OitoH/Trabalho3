@@ -4,7 +4,7 @@ import AvatarPkg.*;
 
 import java.lang.System;
 
-public class Runnable {
+public class Exec {
 
 	public static void main ( String [] args ) {
 

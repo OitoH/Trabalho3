@@ -1,5 +1,5 @@
 CC = javac
-EXEC = Runnable
+EXEC = Exec
 
 all: ; $(CC) $(EXEC).java
 
