@@ -97,8 +97,14 @@ public class Inventory {
 			System.err.println( "Erro! Não há espaço disponível no inventário." );
 		//Se há espaço no inventário.
 		else {
+			if ( equip ) {
+				 if ( newItem.getAttackPts() == 0 && newItem.getDefensePts() == 0 ) {
+					System.err.println( "Erro! O ítem não é equipável." );
+					equip = false;
+				}
+			}
 			items.addElement( new Pair<Item, Boolean>(newItem, equip) );
-			if ( !equip ) { //Se não pretendemos equipar o ítem, coloca em posição anterior aos ítens equipados.
+			if ( !equip ) { //Se não pretendemos ou não podemos equipar o ítem, coloca em posição anterior aos ítens equipados.
 				int i = items.size() - 2;
 				while ( i >= 0 && items.elementAt(i).second )	--i;
 				if ( i >= 0 ) { //Se há items equipados antes da posição deste elemento no vetor, troca-o de posição com o elemento inserido.
