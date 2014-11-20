@@ -3,7 +3,13 @@ import java.lang.System;
 
 public abstract class Item {
 
-	//public:
+	//Variáveis
+	//private
+	private String name;
+	private double price;
+
+	//Métodos
+	//public
 	public Item(String newName, double newPrice) {
 		setName(newName);
 		setPrice(newPrice);
@@ -23,10 +29,7 @@ public abstract class Item {
 
 	public int getDefensePts( ) { return 0; }
 
-	//private:
-	private String name;
-	private double price;
-
+	//private
 	//Métodos Setter
 	private void setName(String newName) { name = newName; }
 
@@ -34,8 +37,9 @@ public abstract class Item {
 		if ( newPrice > 0.0 )    price = newPrice;
 		else {
 			newPrice = 1.0;
-			System.err.println("Valor inválido de newPrice no item " + getName()
-					+ "atribuindo valor padrão: " + newPrice );
+			System.err.println( "Valor inválido de newPrice no item " + getName()
+									+ "atribuindo valor padrão: " + newPrice
+								  );
 		}
 	}
 

@@ -1,10 +1,62 @@
 import Items.*;
 import Aux.*;
 import AvatarPkg.*;
-
-import java.lang.System;
+import java.util.*;
 
 public class Exec {
+
+	public static Team createTeam() { //Função que cria um time a partir dos parâmetros fornecidos pelo jogador.
+		int buffer;
+		Color [] list = Color.getColorList();
+		Scanner input = new Scanner();
+		String name;
+
+		System.out.print( "Forneça o nome do time:\t" );
+		name = input.next();
+
+		System.out.print( "Cores disponíveis:\n" );
+		for ( int i = 0; i < list.size(); i++ )
+			System.out.println( (i + 1) + " - " + list[i].getName() );
+		System.out.print( "Digite o número da cor desejada:\t" );
+
+		buffer = input.nextInt();
+		while( buffer < 0 || buffer >= list.size() ) {
+			System.out.println( "Nenhuma cor corresponde a esse número.\n"
+								   	 "Digite um número válido:\t"
+								   );
+			buffer = input.nextInt();
+		}
+		return new Team( name, list[buffer] );
+	}
+
+	public static void mainMenu() {
+		int buffer;
+		Scanner input = new Scanner();
+
+		System.out.print( "Opções:\n"
+								"1 - Criar um time\n"
+								"2 - Ver time\n"
+								"3 - Torneio\n"
+								"0 - Sair\n"
+								"Insira a opção desejada:\t"
+							);
+		while( buffer = Scanner.nextInt(), buffer != 0 ) {
+			switch( buffer ) {
+				case 1:
+
+					break;
+				case 2:
+
+					break;
+				case 3:
+
+					break;
+				default:
+					System.out.println("Opção inválida.");
+					break;
+			}
+		}
+	}
 
 	public static void main ( String [] args ) {
 

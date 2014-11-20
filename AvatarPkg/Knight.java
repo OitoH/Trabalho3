@@ -1,6 +1,11 @@
 package AvatarPkg;
 public class Knight extends Avatar {
 
+	//Variáveis
+	//protected:
+	protected int power;
+
+	//Métodos
 	//public:
 	public Knight(String name, int newPower) {
 		super(name);
@@ -10,9 +15,6 @@ public class Knight extends Avatar {
 	public void addPower(int increase) {
 		power += increase;
 	}
-
-	//protected:
-	protected int power;
 
 	//Métodos Getter
 	protected int getDefensePts() {

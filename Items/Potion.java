@@ -3,6 +3,11 @@ import AvatarPkg.*;
 
 public abstract class Potion extends Item {
 
+	//Variáveis
+	//protected:
+	protected int restorepts;
+
+	//Métodos
 	//public:
 	public Potion(String newName, double newPrice, int newRestorePts) {
 		super(newName, newPrice);
@@ -22,6 +27,4 @@ public abstract class Potion extends Item {
 	*/
 	public abstract void use(Avatar user);
 
-	//protected:
-	protected int restorepts;
 }

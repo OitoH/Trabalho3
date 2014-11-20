@@ -1,6 +1,11 @@
 package AvatarPkg;
 public class Thief extends Avatar {
 
+	//Variáveis
+	//protected:
+	protected int stealth;
+
+	//Métodos
 	//public:
 	public Thief(String name, int newStealth) {
 		super(name);
@@ -12,8 +17,6 @@ public class Thief extends Avatar {
 	}
 
 	//protected:
-	protected int stealth;
-
 	//Métodos Getter
 	protected int getAttackPts() {
 		return super.getAttackPts() + stealth;

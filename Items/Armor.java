@@ -3,6 +3,12 @@ import java.lang.System;
 
 public class Armor extends Item {
 
+	//Variáveis
+	//protected:
+	protected int defensepts;
+	protected double weight;
+
+	//Métodos
 	//public:
 	public Armor(String newName, double newPrice, int newDefensePts, double newWeight) {
 		super(newName, newPrice);
@@ -32,7 +38,8 @@ public class Armor extends Item {
 		else {
 			defensepts = 10;
 			System.err.println( "Valor inválido de defensepts no item " + getName()
-					+ " atribuindo valor padrão: " + defensepts );
+									+ " atribuindo valor padrão: " + defensepts
+								  );
 		}
 	}
 
@@ -42,12 +49,9 @@ public class Armor extends Item {
 		else {
 			weight = 10.0;
 			System.err.println( "Valor inválido de weight no item " + getName()
-					+ " atribuindo valor padrão: " + weight );
+									+ " atribuindo valor padrão: " + weight
+								  );
 		}
 	}
-
-	//protected:
-	protected int defensepts;
-	protected double weight;
 
 }

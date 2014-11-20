@@ -3,6 +3,7 @@ import AvatarPkg.*;
 
 public class HealthPotion extends Potion {
 
+	//Métodos
 	//public:
 	public HealthPotion(String newName, double newPrice, int newRestorePts) {
 		super(newName, newPrice, newRestorePts);

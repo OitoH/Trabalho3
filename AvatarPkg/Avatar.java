@@ -6,6 +6,21 @@ import java.util.Random;
 
 public abstract class Avatar {
 
+	//Variáveis
+	//protected:
+	protected int constitution;
+	protected int dexterity;
+	protected int speed;
+	protected int strength;
+	protected int XP;
+
+	//private:
+	private int HP;
+	private int MP;
+	private String alias;
+	private Inventory myitems;
+
+	//Métodos
 	//public:
 	public Avatar(String name) {
 		myitems = new Inventory(20, 50.0);
@@ -199,13 +214,7 @@ public abstract class Avatar {
 			myitems.removeItem(itemPos);
 	}
 
-	//protected:
-	protected int constitution;
-	protected int dexterity;
-	protected int speed;
-	protected int strength;
-	protected int XP;
-
+	//protected
 	//Métodos Getter
 	protected int getAttackPts() {
 		return new Double ( ( strength * 0.5 + dexterity * 0.3 + speed * 0.2 + myitems.getTotalAttPts() ) * XP/3 ).intValue();
@@ -219,9 +228,4 @@ public abstract class Avatar {
 		return new Double(speed * Math.exp ( (0 - Math.pow( myitems.getEquippedArmorWeight()/20.0, 2.0 ) ) )).intValue();
 	}
 
-	//private:
-	private int HP;
-	private int MP;
-	private String alias;
-	private Inventory myitems;
 }

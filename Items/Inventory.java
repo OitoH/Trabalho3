@@ -5,6 +5,13 @@ import java.util.Vector;
 
 public class Inventory {
 
+	//Variáveis
+	//private:
+	private int spaces;
+	private double gold;
+	private Vector< Pair<Item, Boolean> > items;
+
+	//Métodos
 	//public:
 	public Inventory(int newSpace, double newGold) {
 		setSpaces(newSpace);
@@ -189,8 +196,4 @@ public class Inventory {
 		}
 	}
 
-	//private:
-	private int spaces;
-	private double gold;
-	private Vector< Pair<Item, Boolean> > items;
 }

@@ -6,6 +6,16 @@ import java.util.Vector;
 
 public class Team {
 
+	//Variáveis
+	//private:
+	private String name;
+	private Color color;
+	private int win;
+	private int lose;
+	private int draw;
+	private Vector<Avatar> characters;
+
+	//Métodos
 	//public:
 	public Team(String newName, Color newColor) {
 		name = newName;
@@ -34,6 +44,13 @@ public class Team {
 		return "Time: " + name + "\nCor: " + color.getColorName() + "\n";
 	}
 
+	public String listCharacters() {
+		String list;
+		for ( int i = 0; i < characters.size(); i++ )
+			list.concat( i + 1 + characters[i].getName() );
+		return list;
+	}
+
 	//Esta resolveBattle dá resultados para ambas as classes, o que dispensa uma chamada para cada classe.
 	//Retorno: 1 -> Vitória do time local, -1 -> Vitória do time oponente, 0 -> Empate
 	//Optei também por batalhas aleatórias, já que não há interação do usuário.
@@ -41,7 +58,9 @@ public class Team {
 	//já que um time nem todos os membros de um time devem morrer para o término da batalha.
 	public int resolveBattle(Team opponent) {
 		//A contagem de mortes é utilizada a fim de dar fim à batalha.
-		int localDeaths = 0, opponentDeaths = localDeaths, turnCounter = 1;
+		int localDeaths = 0,
+			opponentDeaths = localDeaths,
+			turnCounter = 1;
 		Random dice = new Random();
 
 		//Para que a possibilidade de empates ocorra, optei por limitar o número de turnos.
@@ -103,13 +122,5 @@ public class Team {
 		System.err.println( "Erro! Personagem não encontrado, retornando null" );
 		return null;
 	}
-
-	//private:
-	private String name;
-	private Color color;
-	private int win;
-	private int lose;
-	private int draw;
-	private Vector<Avatar> characters;
 
 }
