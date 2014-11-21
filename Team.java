@@ -41,13 +41,18 @@ public class Team {
 	}
 
 	public String toString() {
-		return "Time: " + name + "\nCor: " + color.getColorName() + "\n";
+		return "Time: " + name + "\nCor: " + color.getName() + "\n";
 	}
 
 	public String listCharacters() {
-		String list;
-		for ( int i = 0; i < characters.size(); i++ )
-			list.concat( i + 1 + characters[i].getName() );
+		int i = 0;
+		String list = new String();
+
+		for ( Avatar it : characters ) {
+			list.concat( i + 1 + "-" + it.getName() );
+			++i;
+		}
+
 		return list;
 	}
 

@@ -2,13 +2,6 @@ import java.util.ArrayList;
 
 public enum Color {
 
-	//Variáveis
-	//private
-	private int rgba;
-	private String name;
-	private static ArrayList<Color> colorArray;
-
-	//public
 	BLUE ( "Azul", 0, 0, 255, 0 ),
 	RED ( "Vermelho", 255, 0, 0, 0 ),
 	GREEN ( "Verde", 0, 255, 0, 0 ),
@@ -16,9 +9,7 @@ public enum Color {
 	WHITE ( "Branco", 255, 255, 255, 0 ),
 	BLACK ( "Preto", 0, 0, 0, 0 );
 
-	//Métodos
-	//public
-	Color(String newName, int red, int green, int blue, int alpha) {
+	private Color(String newName, int red, int green, int blue, int alpha) {
 		name = newName;
 		if ( red > 255 )
 		{
@@ -41,12 +32,16 @@ public enum Color {
 			alpha = 255;
 		}
 		rgba = ( red << 24 ) + ( green << 16 ) + ( blue << 8 ) + ( alpha );
-		colorArray.add(this);
 	}
 
-	public static Color[] getColorList() { return colorArray.toArray(); }
+	//Variáveis
+	//private
+	private int rgba;
+	private String name;
 
-	public String getColorName() { return name; }
+	//Métodos
+	//public
+	public String getName() { return name; }
 
 	public int getRGBA() { return rgba; }
 

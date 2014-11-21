@@ -5,45 +5,46 @@ import java.util.*;
 
 public class Exec {
 
-	public static Team createTeam() { //Função que cria um time a partir dos parâmetros fornecidos pelo jogador.
-		int buffer;
-		Color [] list = Color.getColorList();
-		Scanner input = new Scanner();
+	public static Team createTeam() { // Função que cria um time a partir dos parâmetros fornecidos pelo jogador.
+		Scanner input = new Scanner(System.in);
 		String name;
 
 		System.out.print( "Forneça o nome do time:\t" );
-		name = input.next();
+		name = input.nextLine();
 
 		System.out.print( "Cores disponíveis:\n" );
-		for ( int i = 0; i < list.size(); i++ )
-			System.out.println( (i + 1) + " - " + list[i].getName() );
-		System.out.print( "Digite o número da cor desejada:\t" );
-
-		buffer = input.nextInt();
-		while( buffer < 0 || buffer >= list.size() ) {
-			System.out.println( "Nenhuma cor corresponde a esse número.\n"
-								   	 "Digite um número válido:\t"
-								   );
-			buffer = input.nextInt();
+		int aux = 0; //Variável auxiliar que guarda o número correspondente às cores.
+		for ( Color it : Color.values() ) {
+			++aux;
+			System.out.println( aux + " - " + it.getName() );
 		}
-		return new Team( name, list[buffer] );
+
+		do {
+			System.out.print( "Digite o número da cor desejada:\t" );
+			try {
+				aux = input.nextInt(); // Agora aux funciona como um buffer para receber o input.
+				--aux; // O usuário entra com índice + 1, por isso é necessário decrementá-lo.
+				return new Team( name, Color.values()[aux] );
+			}
+			catch (InputMismatchException e) { //Se houve um erro no tipo de entrada.
+				System.out.print("Erro! Você deve digitar um número.");
+			}
+			catch(ArrayIndexOutOfBoundsException e) { //Se não existe cor correspondente ao número fornecido pelo usuário.
+				System.out.print("Nenhuma cor corresponde a esse número.");
+			}
+		} while( true );
 	}
 
 	public static void mainMenu() {
 		int buffer;
-		Scanner input = new Scanner();
+		Scanner input = new Scanner(System.in);
 
-		System.out.print( "Opções:\n"
-								"1 - Criar um time\n"
-								"2 - Ver time\n"
-								"3 - Torneio\n"
-								"0 - Sair\n"
-								"Insira a opção desejada:\t"
-							);
-		while( buffer = Scanner.nextInt(), buffer != 0 ) {
+		System.out.print( "Opções:\n1 - Criar um time\n2 - Ver time\n3 - Torneio\n0 - Sair\nInsira a opção desejada:\t" );
+		buffer = input.nextInt();
+		while( buffer != 0 ) {
 			switch( buffer ) {
 				case 1:
-
+					createTeam();
 					break;
 				case 2:
 
@@ -55,6 +56,7 @@ public class Exec {
 					System.out.println("Opção inválida.");
 					break;
 			}
+			buffer = input.nextInt();
 		}
 	}
 
