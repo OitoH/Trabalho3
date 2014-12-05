@@ -1,6 +1,9 @@
 To do:
+    Armas de longa distância, para utilizar arrows.
 
 Doing:
-    Menu de interação do usuário.
 
 Done:
+    Interface Pack.
+    Classe Arrows que implementa a interface Pack.
+    Classe PackManipulationError para poder trabalhar um pouco com execções.

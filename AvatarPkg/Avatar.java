@@ -35,6 +35,13 @@ public abstract class Avatar {
 		return alias;
 	}
 
+	public String toString() {
+		return ( getName() + "\nHP: " + getHP() + "\nMP: " + getMP()
+				  + "\nConstitution: " + constitution + "\nDexterity: " + dexterity
+				  + "\nSpeed: " + speed + "\nStrength: " + strength + "\n"
+				);
+	}
+
 	//Métodos de combate
 	public void attack(Avatar attackedAvatar) {
 		int damage;
@@ -91,6 +98,10 @@ public abstract class Avatar {
 	//Métodos Getter
 	public int getHP() {
 		return HP;
+	}
+
+	public int getMP() {
+		return MP;
 	}
 
 	//Métodos Setter

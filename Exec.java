@@ -5,61 +5,6 @@ import java.util.*;
 
 public class Exec {
 
-	public static Team createTeam() { // Função que cria um time a partir dos parâmetros fornecidos pelo jogador.
-		Scanner input = new Scanner(System.in);
-		String name;
-
-		System.out.print( "Forneça o nome do time:\t" );
-		name = input.nextLine();
-
-		System.out.print( "Cores disponíveis:\n" );
-		int aux = 0; //Variável auxiliar que guarda o número correspondente às cores.
-		for ( Color it : Color.values() ) {
-			++aux;
-			System.out.println( aux + " - " + it.getName() );
-		}
-
-		do {
-			System.out.print( "Digite o número da cor desejada:\t" );
-			try {
-				aux = input.nextInt(); // Agora aux funciona como um buffer para receber o input.
-				--aux; // O usuário entra com índice + 1, por isso é necessário decrementá-lo.
-				return new Team( name, Color.values()[aux] );
-			}
-			catch (InputMismatchException e) { //Se houve um erro no tipo de entrada.
-				System.out.print("Erro! Você deve digitar um número.");
-			}
-			catch(ArrayIndexOutOfBoundsException e) { //Se não existe cor correspondente ao número fornecido pelo usuário.
-				System.out.print("Nenhuma cor corresponde a esse número.");
-			}
-		} while( true );
-	}
-
-	public static void mainMenu() {
-		int buffer;
-		Scanner input = new Scanner(System.in);
-
-		System.out.print( "Opções:\n1 - Criar um time\n2 - Ver time\n3 - Torneio\n0 - Sair\nInsira a opção desejada:\t" );
-		buffer = input.nextInt();
-		while( buffer != 0 ) {
-			switch( buffer ) {
-				case 1:
-					createTeam();
-					break;
-				case 2:
-
-					break;
-				case 3:
-
-					break;
-				default:
-					System.out.println("Opção inválida.");
-					break;
-			}
-			buffer = input.nextInt();
-		}
-	}
-
 	public static void main ( String [] args ) {
 
 		HealthPotion lightPotion = new HealthPotion( "Poção Leve", 1.99, 5 );

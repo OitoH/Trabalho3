@@ -44,12 +44,12 @@ public class Team {
 		return "Time: " + name + "\nCor: " + color.getName() + "\n";
 	}
 
-	public String listCharacters() {
+	public String listAvatars() {
 		int i = 0;
 		String list = new String();
 
 		for ( Avatar it : characters ) {
-			list.concat( i + 1 + "-" + it.getName() );
+			list.concat( i + 1 + " - " + it.getName() + "\n" );
 			++i;
 		}
 
