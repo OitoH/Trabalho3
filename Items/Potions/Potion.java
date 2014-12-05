@@ -1,5 +1,6 @@
-package Items;
-import AvatarPkg.*;
+package Items.Potions;
+import Items.Item;
+import AvatarPkg.Avatar;
 
 public abstract class Potion extends Item {
 

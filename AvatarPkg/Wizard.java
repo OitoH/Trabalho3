@@ -1,4 +1,5 @@
 package AvatarPkg;
+
 public class Wizard extends Avatar {
 
 	//Variáveis

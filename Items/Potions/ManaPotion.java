@@ -1,5 +1,5 @@
-package Items;
-import AvatarPkg.*;
+package Items.Potions;
+import AvatarPkg.Avatar;
 
 public class ManaPotion extends Potion {
 

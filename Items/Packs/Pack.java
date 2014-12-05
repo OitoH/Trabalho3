@@ -1,3 +1,5 @@
+package Items.Packs;
+
 private interface Pack { //Interface para Items que são pacotes de ítens, como pacotes de flechas.
 
     public int getAmount(); //Adquirir quantidade de elementos no pacote.

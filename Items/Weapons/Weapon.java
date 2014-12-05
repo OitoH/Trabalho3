@@ -1,34 +1,28 @@
-package Items;
-import java.lang.System;
+package Items.Weapons;
+
+import Items.Item;
 
 public class Weapon extends Item {
 
-	//Variáveis
+	//Parâmetros
 	//protected:
 	protected int attackpts;
-	protected double range;
 
 	//Métodos
 	//public:
-	public Weapon(String newName, double newPrice, int newAttackPts, double newRange) {
+	public Weapon(String newName, double newPrice, int newAttackPts) {
 		super(newName, newPrice);
 		setAttackPts(newAttackPts);
-		setRange(newRange);
 	}
 
 	public Weapon(Weapon rhs) {
 		super(rhs);
 		setAttackPts( rhs.attackpts );
-		setRange( rhs.range );
 	}
 
 	//Métodos Getter
 	public int getAttackPts() {
 		return attackpts;
-	}
-
-	public double getRange() {
-		return range;
 	}
 
 	//Métodos Setter
@@ -41,10 +35,6 @@ public class Weapon extends Item {
 									+ " atribuindo valor padrão: " + attackpts
 								  );
 		}
-	}
-
-	public void setRange(double newRange) {
-		range = newRange;
 	}
 
 }

@@ -1,4 +1,5 @@
 package AvatarPkg;
+
 public class Knight extends Avatar {
 
 	//Variáveis

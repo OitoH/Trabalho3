@@ -1,4 +1,5 @@
 package AvatarPkg;
+
 public class Thief extends Avatar {
 
 	//Variáveis

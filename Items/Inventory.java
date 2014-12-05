@@ -1,6 +1,5 @@
 package Items;
 import Aux.*;
-import java.lang.Boolean;
 import java.util.Vector;
 
 public class Inventory {

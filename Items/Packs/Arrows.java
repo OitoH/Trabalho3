@@ -1,3 +1,5 @@
+package Items.Packs;
+
 public class Arrows extends Item implements Pack {
 
     private int amount;

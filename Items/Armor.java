@@ -1,5 +1,4 @@
 package Items;
-import java.lang.System;
 
 public class Armor extends Item {
 

@@ -1,7 +1,6 @@
 package AvatarPkg;
+
 import Items.*;
-import java.lang.Boolean;
-import java.lang.Math;
 import java.util.Random;
 
 public abstract class Avatar {
