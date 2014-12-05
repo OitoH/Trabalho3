@@ -20,7 +20,11 @@ public class Thief extends Avatar {
 	//protected:
 	//Métodos Getter
 	protected int getAttackPts() {
-		return super.getAttackPts() + stealth;
+		return super.getAttackPts() + stealth/2;
+	}
+
+	protected int getDefensePts() {
+		return super.getDefensePts() + stealth;
 	}
 
 }

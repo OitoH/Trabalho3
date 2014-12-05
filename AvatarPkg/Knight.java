@@ -17,9 +17,13 @@ public class Knight extends Avatar {
 		power += increase;
 	}
 
+	protected int getAttackPts() {
+		return super.getAttackPts() + power;
+	}
+
 	//Métodos Getter
 	protected int getDefensePts() {
-		return super.getDefensePts() + power;
+		return super.getDefensePts() + power/3;
 	}
 
 }

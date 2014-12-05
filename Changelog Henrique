@@ -1,10 +1,9 @@
 To do:
-    Alterar Inventory para lidar com armas de longa distância.
 
 Doing:
-    Classe Archer.
 
 Done:
     Interface Pack.
+    Classe Archer.
     Classe Arrows que implementa a interface Pack.
     Classe PackManipulationError para poder trabalhar um pouco com execções.

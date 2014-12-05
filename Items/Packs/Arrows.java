@@ -28,21 +28,20 @@ public class Arrows extends Item implements Pack {
 
     public void use() throws PackManipulationException { //Usar um elemento do pacote.
         if ( isEmpty() )
-            throw new PackManipulationException( "Não há mais ítens no pacote." );
+            throw new PackManipulationException( "Não há mais flechas no pacote." );
         //Se não está vazio, diminui a quantidade de ítens.
         --amount;
     }
 
     private void setAmount(int newAmount) {
-        if ( amount > 0 )
-            newAmount = amount;
-        else {
+        if ( newAmount < 1 ) {
             newAmount = 5;
             System.err.println( "A quantidade de flechas não pode ter o valor "
                                         + amount + "\nAtribuindo valor padrão: "
                                         + newAmount
                                       );
         }
+        amount = newAmount;
     }
 
 }

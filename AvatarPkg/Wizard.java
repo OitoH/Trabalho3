@@ -19,6 +19,10 @@ public class Wizard extends Avatar {
 
 	//protected:
 	//Métodos Getter
+	protected int getAttackPts() {
+		return super.getAttackPts() + wisdom/3;
+	}
+
 	protected int getDefensePts() {
 		return super.getDefensePts() + wisdom/2;
 	}

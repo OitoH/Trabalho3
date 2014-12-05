@@ -23,9 +23,7 @@ public abstract class Potion extends Item {
 	public int getRestorePts() {
 		return restorepts;
 	}
-	/*Optei por não sobrecarregar a função getDefensePts() devido à como
-	* a função grabItem em Avatar diferencia os ítens.
-	*/
+
 	public abstract void use(Avatar user);
 
 }
