@@ -40,7 +40,7 @@ public class Exec {
 		// Time Foo
 		Team fooTeam = new Team( "Masters of the fooland", Color.GREEN );
 
-		Knight fooLancer = new Knight( "Lanceiro Foo", 8 );
+		Knight fooLancer = new Knight( "Lanceiro Foo", 40 );
 		fooLancer.grabItem( new Weapon(lance), true );
 		fooLancer.grabItem( new Armor(steelArmor), true );
 		fooLancer.grabItem( new HealthPotion(lightPotion), false );
@@ -50,7 +50,7 @@ public class Exec {
 		fooLancer.setStrength(45);
 		fooLancer.addPower(37);
 
-		Knight fooFighter = new Knight( "Foofigther", 10 );
+		Knight fooFighter = new Knight( "Foofigther", 28 );
 		fooFighter.grabItem( new Weapon(maca), true );
 		fooFighter.grabItem( new HealthPotion(greatPotion), false );
 		fooFighter.grabItem( new HealthPotion(maximaPotion), false );
@@ -59,7 +59,7 @@ public class Exec {
 		fooFighter.setConstitution(40);
 		fooFighter.setStrength(32);
 
-		Wizard fooMage = new Wizard( "Mágico Foo", 8 );
+		Wizard fooMage = new Wizard( "Mágico Foo", 22 );
 		fooMage.grabItem( new Armor(magicArmor), true );
 		fooMage.grabItem( new HealthPotion(minorPotion), false );
 		fooMage.grabItem( new ManaPotion(elixir), false );
@@ -69,7 +69,7 @@ public class Exec {
 		fooMage.setConstitution(38);
 		fooMage.setSpeed(30);
 
-		Thief fooThief = new Thief( "Ladino Foo", 5 );
+		Thief fooThief = new Thief( "Ladino Foo", 45 );
 		fooThief.grabItem( new Weapon(knife), true );
 		fooThief.grabItem( new Weapon(knife), true );
 		fooThief.grabItem( new Armor(leatherArmor), true );
@@ -85,7 +85,7 @@ public class Exec {
 		// Time Bar
 		Team barTeam = new Team( "Time Bar", Color.RED );
 
-		Thief barLeader = new Thief( "Líder Bar", 9 );
+		Thief barLeader = new Thief( "Líder Bar", 30 );
 		barLeader.grabItem( new Armor(fullMetalArmor), true );
 		barLeader.grabItem( new Weapon(shortSword), true );
 		barLeader.grabItem( new Weapon(shortSword), true );
@@ -103,7 +103,7 @@ public class Exec {
 		barJap.setSpeed(40);
 		barJap.addWisdom(50);
 
-		Knight barSeker = new Knight( "BarSeker", 9 );
+		Knight barSeker = new Knight( "BarSeker", 17 );
 		barSeker.grabItem( new Armor(fullMetalArmor), true );
 		barSeker.grabItem( new Weapon(maca), true );
 		barSeker.grabItem( new Weapon(maca), true );

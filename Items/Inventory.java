@@ -37,13 +37,18 @@ public class Inventory {
 		return gold;
 	}
 
-	public void spendGold(double expenses) {
-		if (expenses > gold)    System.err.println( "Erro! Você não não possui ouro suficiente." );
-		else    gold -= expenses;
+	public boolean spendGold(double expenses) {
+		if (expenses > gold) {
+			System.err.println( "Erro! Você não não possui ouro suficiente." );
+			return false;
+		}
+		gold -= expenses;
+		return true;
 	}
 
 	public void earnGold(double earning) {
-		if ( earning < 0.0 )    System.err.println( "Erro! Você não pode receber uma quantidade de ouro menor que 0" );
+		if ( earning < 0.0 )
+			System.err.println( "Erro! Você não pode receber uma quantidade de ouro menor que 0" );
 		else gold += earning;
 	}
 
