@@ -1,8 +1,10 @@
 package Items;
+
 import Aux.*;
 import java.util.Vector;
+import java.io.Serializable;
 
-public class Inventory {
+public class Inventory implements Serializable {
 
 	//Variáveis
 	//private:
@@ -108,7 +110,7 @@ public class Inventory {
 			System.err.println( "Erro! Não há espaço disponível no inventário." );
 		//Se há espaço no inventário.
 		else {
-			if ( equip ) {
+			if ( equip ) { //Checa se o ítem é equipável.
 				 if ( newItem.getAttackPts() == 0 && newItem.getDefensePts() == 0 ) {
 					System.err.println( "Erro! O ítem não é equipável." );
 					equip = false;

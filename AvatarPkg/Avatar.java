@@ -2,8 +2,10 @@ package AvatarPkg;
 
 import Items.*;
 import java.util.Random;
+import java.io.PrintStream;
+import java.io.Serializable;
 
-public abstract class Avatar {
+public abstract class Avatar implements Serializable {
 
 	//Variáveis
 	//protected:
@@ -42,38 +44,44 @@ public abstract class Avatar {
 	}
 
 	//Métodos de combate
-	public void attack(Avatar attackedAvatar) {
+	public String attack(Avatar attackedAvatar) { //Retorna os eventos que ocorreram na batalha.
 		int damage;
 		double dice;
+		String output = new String();
 		Random rand = new Random();
 
-		if ( HP == 0 )  System.out.println( this.getName() + " está morto e não pode atacar.\n" );
-		else {
-			System.out.println( this.getName() + " ataca " + attackedAvatar.getName() );
+		if ( HP == 0 ) //Se o atacante está morto.
+			output = output.concat( this.getName() + " está morto e não pode atacar.\n\n" );
+		else { //Se o atacante está vivo.
+			output = output.concat( this.getName() + " ataca " + attackedAvatar.getName() + "\n" );
 
-			if ( attackedAvatar.HP != 0 ) {
+			if ( attackedAvatar.HP > 0 ) { //Se o atacado está vivo.
 				dice = rand.nextDouble();
-				System.err.println( "Valor no dado para o dano: " + dice );
+				output = output.concat( "Valor no dado para o dano: " + dice + "\n" );
 
 				if ( dice > 1.0/(10.0 * XP) ) { //Se não ocorrer miss
 					damage = this.getAttackPts() - attackedAvatar.getDefensePts() + ( rand.nextInt() % 11 - 5 );
 					if ( damage < 1 )   damage = 1;
 					dice = rand.nextDouble();
-					System.err.println( "Valor no dado para critical: " + dice );
-					if ( dice <= XP/100.0 ) {
-						damage *= 2;  //Se ocorrer critical
-						System.out.println( "Ataque crítico!!!");
+					output = output.concat( "Valor no dado para critical: " + dice + "\n" );
+
+					if ( dice <= XP/100.0 ) { //Se ocorrer critical
+						damage *= 2;
+						output = output.concat("Ataque crítico!!!\n");
 					}
-					System.out.println( "Dano: " + damage );
+					output = output.concat("Dano: " + damage + "\n");
 					attackedAvatar.addHP(0 - damage);
 				}
-				else System.out.println( "Errou!" );
+				else //Se ocorrer miss.
+					output = output.concat("Errou!\n");
 
-				System.out.println( this.getName() + " HP: " + HP + "\n"
-						+ attackedAvatar.getName() + " HP: " + attackedAvatar.HP + "\n" );
+				output = output.concat(this.getName() + " HP: " + HP + "\n" + attackedAvatar.getName()
+						   		   + " HP: " + attackedAvatar.HP + "\n\n");
 			}
-			else System.out.println( attackedAvatar.getName()  + " já está morto." + "\n");
+			else //Se o atacado está morto.
+				output = output.concat(attackedAvatar.getName()  + " já está morto." + "\n\n");
 		}
+		return output;
 	}
 
 	//Métodos add

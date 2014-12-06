@@ -2,8 +2,10 @@ import Aux.*;
 import AvatarPkg.*;
 import java.util.Random;
 import java.util.Vector;
+import java.io.PrintStream;
+import java.io.Serializable;
 
-public class Team {
+public class Team implements Serializable {
 
 	//Variáveis
 	//private:
@@ -48,7 +50,7 @@ public class Team {
 		String list = new String();
 
 		for ( Avatar it : characters ) {
-			list.concat( i + 1 + " - " + it.getName() + "\n" );
+			list = list.concat( i + 1 + " - " + it.getName() + "\n" );
 			++i;
 		}
 
@@ -60,11 +62,13 @@ public class Team {
 	//Optei também por batalhas aleatórias, já que não há interação do usuário.
 	//Os turnos são limitados para que exista a possibilidade de empate,
 	//já que um time nem todos os membros de um time devem morrer para o término da batalha.
-	public int resolveBattle(Team opponent) {
+	//A String output corresponde ao registro de eventos.
+	public String resolveBattle(Team opponent) {
 		//A contagem de mortes é utilizada a fim de dar fim à batalha.
 		int localDeaths = 0,
 			opponentDeaths = localDeaths,
 			turnCounter = 1;
+		String output = new String();
 		Random dice = new Random();
 
 		//Para que a possibilidade de empates ocorra, optei por limitar o número de turnos.
@@ -72,32 +76,37 @@ public class Team {
 				&& localDeaths < characters.size() && opponentDeaths < opponent.characters.size() ) {
 			if ( dice.nextDouble() > 0.5 )
 			{
-				System.out.println( "Turno: " + turnCounter );
+				output = output.concat("Turno: " + turnCounter + "\n");
 				turnCounter++;
 				//Seleciona um personagem aleatório do time local e um do oponente, o local ataca o oponente.
-				characters.elementAt(dice.nextInt( characters.size() )  ).attack( opponent.characters.elementAt(dice.nextInt( opponent.characters.size() ) ) );
+				output = output.concat(characters.elementAt( dice.nextInt(characters.size()) )
+											    .attack( opponent.characters
+																	 .elementAt(dice.nextInt(opponent.characters.size())))
+								  );
 			}
 			if ( dice.nextDouble() > 0.5 )
 			{
-				System.out.println( "Turno: " + turnCounter );
+				output = output.concat("Turno: " + turnCounter + "\n");
 				turnCounter++;
 				//Seleciona um personagem aleatório do time oponente e um do local, o oponente ataca o local.
-				opponent.characters.elementAt(dice.nextInt( opponent.characters.size() ) ).attack( characters.elementAt(dice.nextInt( characters.size() ) ) );
+				output = output.concat(opponent.characters.elementAt( dice.nextInt(opponent.characters.size()) )
+											                  .attack( characters.elementAt(dice.nextInt(characters.size())))
+								  );
 			}
 		}
 		if ( getPoints() < opponent.getPoints() ) { // Se o time local perdeu.
 			++lose;
 			++(opponent.win);
-			return -1;
 		}
-		if ( opponent.getPoints() < getPoints() ) { //Se o time local venceu
+		else if ( opponent.getPoints() < getPoints() ) { //Se o time local venceu
 			++win;
 			++(opponent.lose);
-			return 1;
 		}
-		++draw;
-		++(opponent.draw);
-		return 0;
+		else {
+			++draw;
+			++(opponent.draw);
+		}
+		return output;
 	}
 
 	//Gerenciamento de personagens
