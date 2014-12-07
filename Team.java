@@ -58,10 +58,9 @@ public class Team implements Serializable {
 	}
 
 	//Esta resolveBattle dá resultados para ambas as classes, o que dispensa uma chamada para cada classe.
-	//Retorno: 1 -> Vitória do time local, -1 -> Vitória do time oponente, 0 -> Empate
 	//Optei também por batalhas aleatórias, já que não há interação do usuário.
 	//Os turnos são limitados para que exista a possibilidade de empate,
-	//já que um time nem todos os membros de um time devem morrer para o término da batalha.
+	//já que em um time nem todos os membros de um time devem morrer para o término da batalha.
 	//A String output corresponde ao registro de eventos.
 	public String resolveBattle(Team opponent) {
 		//A contagem de mortes é utilizada a fim de dar fim à batalha.
@@ -72,7 +71,7 @@ public class Team implements Serializable {
 		Random dice = new Random();
 
 		//Para que a possibilidade de empates ocorra, optei por limitar o número de turnos.
-		while( turnCounter <= ( characters.size() * characters.size() * opponent.characters.size() )
+		while( turnCounter <= ( characters.size() * characters.size() * 2 )
 				&& localDeaths < characters.size() && opponentDeaths < opponent.characters.size() ) {
 
 			//Optamos por deixar esta impressão dentro da main a fim de
@@ -138,6 +137,11 @@ public class Team implements Serializable {
 			if ( charName.compareTo( it.getName() ) == 0 )     return it;
 		System.err.println( "Erro! Personagem não encontrado, retornando null" );
 		return null;
+	}
+
+	public void revive() {
+		for ( Avatar it : characters )
+			it.addHP(200);
 	}
 
 }
