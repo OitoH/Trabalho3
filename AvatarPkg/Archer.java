@@ -9,7 +9,7 @@ public class Archer extends Avatar {
         setAccuracy(newAccuracy);
     }
 
-    private setAccuracy(double newAccuracy) {
+    private void setAccuracy(double newAccuracy) {
         if ( newAccuracy >= 0.05 && newAccuracy <= 0.9 )
             accuracy = newAccuracy;
         else {
@@ -20,7 +20,7 @@ public class Archer extends Avatar {
         }
     }
 
-    public addAccuracy(double increase) {
+    public void addAccuracy(double increase) {
         accuracy += increase;
         if ( accuracy < 0.05 ) {
             accuracy = 0.05;
