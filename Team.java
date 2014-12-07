@@ -74,7 +74,8 @@ public class Team implements Serializable {
 		while( turnCounter <= ( characters.size() * characters.size() * 2 )
 				&& localDeaths < characters.size() && opponentDeaths < opponent.characters.size() ) {
 
-			//Optamos por deixar esta impressão dentro da main a fim de
+			//Optamos por deixar esta impressão dentro de resolveBattle
+			//a fim de ser possível avaliar a alternância entre threads, no caso de batalhas em paralelo.
 			System.err.println( "Thread atual: " + Thread.currentThread().getName() + "\n");
 
 			if ( dice.nextDouble() > 0.5 )
