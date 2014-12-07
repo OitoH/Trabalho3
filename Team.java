@@ -74,6 +74,10 @@ public class Team implements Serializable {
 		//Para que a possibilidade de empates ocorra, optei por limitar o número de turnos.
 		while( turnCounter <= ( characters.size() * characters.size() * opponent.characters.size() )
 				&& localDeaths < characters.size() && opponentDeaths < opponent.characters.size() ) {
+
+			//Optamos por deixar esta impressão dentro da main a fim de
+			System.err.println( "Thread atual: " + Thread.currentThread().getName() + "\n");
+
 			if ( dice.nextDouble() > 0.5 )
 			{
 				output = output.concat("Turno: " + turnCounter + "\n");

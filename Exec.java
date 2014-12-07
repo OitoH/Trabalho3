@@ -38,6 +38,8 @@ public class Exec {
 		Weapon excalibur = new Weapon( "Excalibur", 550.00, 9 );
 
 		// Time Foo
+		// ===========================================================================================
+
 		Team fooTeam = new Team( "Masters of the fooland", Color.GREEN );
 
 		Knight fooLancer = new Knight( "Lanceiro Foo", 40 );
@@ -55,7 +57,7 @@ public class Exec {
 		fooFighter.grabItem( new HealthPotion(greatPotion), false );
 		fooFighter.grabItem( new HealthPotion(maximaPotion), false );
 		fooFighter.grabItem( new Armor(lightArmor), true );
-		fooLancer.addXP(45);
+		fooFighter.addXP(45);
 		fooFighter.setConstitution(40);
 		fooFighter.setStrength(32);
 
@@ -83,6 +85,8 @@ public class Exec {
 		fooTeam.addChar( fooThief );
 
 		// Time Bar
+		// ===========================================================================================
+
 		Team barTeam = new Team( "Time Bar", Color.RED );
 
 		Thief barLeader = new Thief( "Líder Bar", 30 );
@@ -127,25 +131,138 @@ public class Exec {
 		barTeam.addChar(barSeker);
 		barTeam.addChar(barLadin);
 
-		boolean sustain = true;
+		// Time Vila
+		// ===========================================================================================
+
+		Team vilaTeam = new Team( "A Vila", Color.YELLOW );
+
+		Knight vilaLancer = new Knight( "Seu Madruga", 40 );
+		vilaLancer.grabItem( new Weapon(lance), true );
+		vilaLancer.grabItem( new Armor(steelArmor), true );
+		vilaLancer.grabItem( new HealthPotion(lightPotion), false );
+		vilaLancer.grabItem( new HealthPotion(lightPotion), false );
+		vilaLancer.addXP(30);
+		vilaLancer.setDexterity(30);
+		vilaLancer.setStrength(45);
+		vilaLancer.addPower(37);
+
+		Knight vilaFighter = new Knight( "Jaiminho, o carteiro de Tangamandápio", 28 );
+		vilaFighter.grabItem( new Weapon(maca), true );
+		vilaFighter.grabItem( new HealthPotion(greatPotion), false );
+		vilaFighter.grabItem( new HealthPotion(maximaPotion), false );
+		vilaFighter.grabItem( new Armor(lightArmor), true );
+		vilaFighter.addXP(45);
+		vilaFighter.setConstitution(40);
+		vilaFighter.setStrength(32);
+
+		Wizard vilaMage = new Wizard( "Bruxa do 71", 22 );
+		vilaMage.grabItem( new Armor(magicArmor), true );
+		vilaMage.grabItem( new HealthPotion(minorPotion), false );
+		vilaMage.grabItem( new ManaPotion(elixir), false );
+		vilaMage.grabItem( new ManaPotion(energyPotion), false );
+		vilaMage.grabItem( new Weapon(staff), true );
+		vilaMage.addXP(33);
+		vilaMage.setConstitution(38);
+		vilaMage.setSpeed(30);
+
+		Thief vilaThief = new Thief( "Chaves, do 8", 45 );
+		vilaThief.grabItem( new Weapon(knife), true );
+		vilaThief.grabItem( new Weapon(knife), true );
+		vilaThief.grabItem( new Armor(leatherArmor), true );
+		vilaThief.grabItem( new HealthPotion(minorPotion), false );
+		vilaThief.grabItem( new HealthPotion(minorPotion), false );
+		vilaThief.addXP(45);
+
+		vilaTeam.addChar( vilaLancer );
+		vilaTeam.addChar( vilaFighter );
+		vilaTeam.addChar( vilaMage );
+		vilaTeam.addChar( vilaThief );
+
+		// Time Brigada
+		// ===========================================================================================
+		Team brigadaTeam = new Team( "Time Brigada dos Encapotados", Color.BLACK );
+
+		Thief brigadaJohn = new Thief( "John Constantine", 20 );
+		brigadaJohn.grabItem( new Armor(fullMetalArmor), true );
+		brigadaJohn.grabItem( new Weapon(shortSword), true );
+		brigadaJohn.grabItem( new Weapon(shortSword), true );
+		brigadaJohn.grabItem( new HealthPotion(whitePotion), false );
+		brigadaJohn.addXP(40);
+		brigadaJohn.setDexterity(40);
+		brigadaJohn.setConstitution(28);
+
+		Wizard brigadaIo = new Wizard( "Mister Io", 5 );
+		brigadaIo.grabItem( new Armor(goldenArmor), true );
+		brigadaIo.grabItem( new Weapon(hashis), true );
+		brigadaIo.grabItem( new Weapon(hashis), true );
+		brigadaIo.grabItem( new ManaPotion(elixir), false );
+		brigadaIo.addXP(30);
+		brigadaIo.setSpeed(40);
+		brigadaIo.addWisdom(50);
+
+		Knight brigadaOculto = new Knight( "Doutor Oculto", 18 );
+		brigadaOculto.grabItem( new Armor(fullMetalArmor), true );
+		brigadaOculto.grabItem( new Weapon(maca), true );
+		brigadaOculto.grabItem( new Weapon(maca), true );
+		brigadaOculto.grabItem( new HealthPotion(greatPotion), false );
+		brigadaOculto.addXP(40);
+		brigadaOculto.setConstitution( 60 );
+		brigadaOculto.setStrength( 50 );
+
+		Thief brigadaVingador = new Thief( "Vingador Fantasma", 9 );
+		brigadaVingador.grabItem( new Armor(fullMetalArmor), true );
+		brigadaVingador.grabItem( new Weapon(knife), true );
+		brigadaVingador.grabItem( new Weapon(knife), true );
+		brigadaVingador.grabItem( new HealthPotion(greatPotion), false );
+		brigadaVingador.addXP(30);
+		brigadaVingador.setDexterity(30);
+		brigadaVingador.setSpeed(40);
+		brigadaVingador.addStealth(33);
+
+		brigadaTeam.addChar(brigadaJohn);
+		brigadaTeam.addChar(brigadaIo);
+		brigadaTeam.addChar(brigadaOculto);
+		brigadaTeam.addChar(brigadaVingador);
+
+		// Batalhas e Threads
+		// ===========================================================================================
+
+		Battle battle1;
+		Battle battle2;
+
+		Thread t1;
+		Thread t2;
+
 		int buffer;
 		String strBuffer;
 		NetworkMatch onlineMatch;
 		Scanner input = new Scanner(System.in);
-		while ( sustain ) {
-			System.out.println( "Opções disponíveis:\n" +
-									"1 - Batalha local entre foo e bar\n" +
+		System.out.println( "Opções disponíveis:\n" +
+									"1 - Iniciar as batalhas\n" +
 									"2 - Hospedar partida pela rede usando o time foo\n" +
 									"3 - Conectar-se a uma partida pela rede usando o time bar\n" +
-									"4 - Sair\n" +
 									"Digite a opção desejada:\t"
-								   );
+						   );
+		try{
 			buffer = input.nextInt();
 			switch(buffer) {
 				case 1:
-					barTeam.resolveBattle(fooTeam);
+					battle1 = new Battle("Duelo 1", fooTeam, barTeam);
+					battle2 = new Battle("Duelo 2", vilaTeam, brigadaTeam);
+
+					t1 = new Thread( battle1, "Thread - " + battle1.getName() );
+					t2 = new Thread( battle2, "Thread - " + battle2.getName() );
+
+					t1.start();
+					t2.start();
+
+					t1.join();
+					t2.join();
+
 					System.out.println( barTeam.toString() + barTeam.getResults() );
 					System.out.println( fooTeam.toString() + fooTeam.getResults() );
+					System.out.println( vilaTeam.toString() + vilaTeam.getResults() );
+					System.out.println( brigadaTeam.toString() + brigadaTeam.getResults() );
 					break;
 				case 2:
 					onlineMatch = new NetworkMatch(fooTeam);
@@ -161,12 +278,16 @@ public class Exec {
 					onlineMatch = new NetworkMatch(barTeam);
 					onlineMatch.connect(strBuffer, buffer);
 					break;
-				case 4:
-					sustain = false;
+				default:
 					break;
 			}
+		}catch(InterruptedException e){
+			System.err.println("Thread abortada durante atividade: " + e.getMessage() );
+		}catch(InputMismatchException e) {
+			System.err.println("Entrada inválida: " + e.getMessage());
+		}catch(NoSuchElementException e) {
+			System.err.println("Entrada inválida: " + e.getMessage());
 		}
-
 	}
 
 }

@@ -5,6 +5,6 @@ all: ; $(CC) $(EXEC).java
 
 run: ; java $(EXEC)
 
-clean: ; rm *.class */*.class
+clean: ; rm *.class */*.class */*/*.class
 
 rebuild: clean all;
