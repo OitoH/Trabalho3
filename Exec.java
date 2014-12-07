@@ -71,18 +71,9 @@ public class Exec {
 		fooMage.setConstitution(38);
 		fooMage.setSpeed(30);
 
-		Thief fooThief = new Thief( "Ladino Foo", 45 );
-		fooThief.grabItem( new Weapon(knife), true );
-		fooThief.grabItem( new Weapon(knife), true );
-		fooThief.grabItem( new Armor(leatherArmor), true );
-		fooThief.grabItem( new HealthPotion(minorPotion), false );
-		fooThief.grabItem( new HealthPotion(minorPotion), false );
-		fooThief.addXP(45);
-
 		fooTeam.addChar( fooLancer );
 		fooTeam.addChar( fooFighter );
 		fooTeam.addChar( fooMage );
-		fooTeam.addChar( fooThief );
 
 		// Time Bar
 		// ===========================================================================================
@@ -97,15 +88,6 @@ public class Exec {
 		barLeader.addXP(40);
 		barLeader.setDexterity(40);
 		barLeader.setConstitution(28);
-
-		Wizard barJap = new Wizard( "Jap Bar", 6 );
-		barJap.grabItem( new Armor(goldenArmor), true );
-		barJap.grabItem( new Weapon(hashis), true );
-		barJap.grabItem( new Weapon(hashis), true );
-		barJap.grabItem( new ManaPotion(elixir), false );
-		barJap.addXP(30);
-		barJap.setSpeed(40);
-		barJap.addWisdom(50);
 
 		Knight barSeker = new Knight( "BarSeker", 17 );
 		barSeker.grabItem( new Armor(fullMetalArmor), true );
@@ -127,7 +109,6 @@ public class Exec {
 		barLadin.addStealth(33);
 
 		barTeam.addChar(barLeader);
-		barTeam.addChar(barJap);
 		barTeam.addChar(barSeker);
 		barTeam.addChar(barLadin);
 
@@ -145,15 +126,6 @@ public class Exec {
 		vilaLancer.setDexterity(30);
 		vilaLancer.setStrength(45);
 		vilaLancer.addPower(37);
-
-		Knight vilaFighter = new Knight( "Jaiminho, o carteiro de Tangamandápio", 28 );
-		vilaFighter.grabItem( new Weapon(maca), true );
-		vilaFighter.grabItem( new HealthPotion(greatPotion), false );
-		vilaFighter.grabItem( new HealthPotion(maximaPotion), false );
-		vilaFighter.grabItem( new Armor(lightArmor), true );
-		vilaFighter.addXP(45);
-		vilaFighter.setConstitution(40);
-		vilaFighter.setStrength(32);
 
 		Wizard vilaMage = new Wizard( "Bruxa do 71", 22 );
 		vilaMage.grabItem( new Armor(magicArmor), true );
@@ -174,7 +146,6 @@ public class Exec {
 		vilaThief.addXP(45);
 
 		vilaTeam.addChar( vilaLancer );
-		vilaTeam.addChar( vilaFighter );
 		vilaTeam.addChar( vilaMage );
 		vilaTeam.addChar( vilaThief );
 
@@ -200,15 +171,6 @@ public class Exec {
 		brigadaIo.setSpeed(40);
 		brigadaIo.addWisdom(50);
 
-		Knight brigadaOculto = new Knight( "Doutor Oculto", 18 );
-		brigadaOculto.grabItem( new Armor(fullMetalArmor), true );
-		brigadaOculto.grabItem( new Weapon(maca), true );
-		brigadaOculto.grabItem( new Weapon(maca), true );
-		brigadaOculto.grabItem( new HealthPotion(greatPotion), false );
-		brigadaOculto.addXP(40);
-		brigadaOculto.setConstitution( 60 );
-		brigadaOculto.setStrength( 50 );
-
 		Thief brigadaVingador = new Thief( "Vingador Fantasma", 9 );
 		brigadaVingador.grabItem( new Armor(fullMetalArmor), true );
 		brigadaVingador.grabItem( new Weapon(knife), true );
@@ -221,27 +183,176 @@ public class Exec {
 
 		brigadaTeam.addChar(brigadaJohn);
 		brigadaTeam.addChar(brigadaIo);
-		brigadaTeam.addChar(brigadaOculto);
 		brigadaTeam.addChar(brigadaVingador);
+
+		// Time Mestres
+		// ===========================================================================================
+
+		Team mestreTeam = new Team( "Time dos Mestres", Color.WHITE );
+
+		Wizard mestreWizard = new Wizard( "Mestre dos Magos", 6 );
+		mestreWizard.grabItem( new Armor(goldenArmor), true );
+		mestreWizard.grabItem( new Weapon(hashis), true );
+		mestreWizard.grabItem( new Weapon(hashis), true );
+		mestreWizard.grabItem( new ManaPotion(elixir), false );
+		mestreWizard.addXP(30);
+		mestreWizard.setSpeed(40);
+		mestreWizard.addWisdom(50);
+
+		Thief mestreThief = new Thief( "Master Chief", 45 );
+		mestreThief.grabItem( new Weapon(knife), true );
+		mestreThief.grabItem( new Weapon(knife), true );
+		mestreThief.grabItem( new Armor(leatherArmor), true );
+		mestreThief.grabItem( new HealthPotion(minorPotion), false );
+		mestreThief.grabItem( new HealthPotion(minorPotion), false );
+		mestreThief.addXP(45);
+
+		Knight mestreKnight = new Knight( "Mestre Kame", 28 );
+		mestreKnight.grabItem( new Weapon(maca), true );
+		mestreKnight.grabItem( new HealthPotion(greatPotion), false );
+		mestreKnight.grabItem( new HealthPotion(maximaPotion), false );
+		mestreKnight.grabItem( new Armor(lightArmor), true );
+		mestreKnight.addXP(45);
+		mestreKnight.setConstitution(40);
+		mestreKnight.setStrength(32);
+
+		mestreTeam.addChar(mestreWizard);
+		mestreTeam.addChar(mestreThief);
+		mestreTeam.addChar(mestreKnight);
+
+
+		// Time Error
+		// ===========================================================================================
+		Team errorTeam = new Team( "Time dos Erros", Color.GREEN );
+
+		Knight stackError = new Knight( "StackOverflow", 28 );
+		stackError.grabItem( new Weapon(maca), true );
+		stackError.grabItem( new HealthPotion(greatPotion), false );
+		stackError.grabItem( new HealthPotion(maximaPotion), false );
+		stackError.grabItem( new Armor(lightArmor), true );
+		stackError.addXP(45);
+		stackError.setConstitution(40);
+		stackError.setStrength(32);
+
+		Wizard nullMage = new Wizard( "NullPointerException", 22 );
+		nullMage.grabItem( new Armor(magicArmor), true );
+		nullMage.grabItem( new HealthPotion(minorPotion), false );
+		nullMage.grabItem( new ManaPotion(elixir), false );
+		nullMage.grabItem( new ManaPotion(energyPotion), false );
+		nullMage.grabItem( new Weapon(staff), true );
+		nullMage.addXP(33);
+		nullMage.setConstitution(38);
+		nullMage.setSpeed(30);
+		
+		Thief thief404 = new Thief( "404 Error", 45 );
+		thief404.grabItem( new Weapon(knife), true );
+		thief404.grabItem( new Weapon(knife), true );
+		thief404.grabItem( new Armor(leatherArmor), true );
+		thief404.grabItem( new HealthPotion(minorPotion), false );
+		thief404.grabItem( new HealthPotion(minorPotion), false );
+		thief404.addXP(45);
+		
+		errorTeam.addChar(stackError);
+		errorTeam.addChar(nullMage);
+		errorTeam.addChar(thief404);
+
+
+
+		// Time Magos
+		// ===========================================================================================
+		Team mageTeam = new Team( "Time dos Magos", Color.BLACK );
+
+		Wizard alanMage = new Wizard( "Alan Moore", 22 );
+		alanMage.grabItem( new Armor(magicArmor), true );
+		alanMage.grabItem( new HealthPotion(minorPotion), false );
+		alanMage.grabItem( new ManaPotion(elixir), false );
+		alanMage.grabItem( new ManaPotion(energyPotion), false );
+		alanMage.grabItem( new Weapon(staff), true );
+		alanMage.setConstitution(38);
+		alanMage.setSpeed(30);
+		alanMage.addXP(33);
+
+
+		Wizard coelhoMage = new Wizard( "Paulo Coelho", 22 );
+		coelhoMage.grabItem( new Armor(magicArmor), true );
+		coelhoMage.grabItem( new HealthPotion(minorPotion), false );
+		coelhoMage.grabItem( new ManaPotion(elixir), false );
+		coelhoMage.grabItem( new ManaPotion(energyPotion), false );
+		coelhoMage.grabItem( new Weapon(staff), true );
+		coelhoMage.addXP(30);
+		coelhoMage.setConstitution(34);
+		coelhoMage.setSpeed(27);
+
+		Wizard crowleyMage = new Wizard( "Aleister Crowley", 22 );
+		crowleyMage.grabItem( new Armor(magicArmor), true );
+		crowleyMage.grabItem( new HealthPotion(minorPotion), false );
+		crowleyMage.grabItem( new ManaPotion(elixir), false );
+		crowleyMage.grabItem( new ManaPotion(energyPotion), false );
+		crowleyMage.grabItem( new Weapon(staff), true );
+		crowleyMage.setConstitution(38);
+		crowleyMage.setSpeed(30);
+		crowleyMage.addXP(22);
+		
+		mageTeam.addChar(alanMage);
+		mageTeam.addChar(coelhoMage);
+		mageTeam.addChar(crowleyMage);
+
+		// Time Metalinguistico
+		// ===========================================================================================
+		Team metaTeam = new Team( "Time este não não é um time", Color.BLACK );
+
+		Thief objThief = new Thief( "Referencia para um objeto da classe Thief", 20 );
+		objThief.grabItem( new Armor(fullMetalArmor), true );
+		objThief.grabItem( new Weapon(shortSword), true );
+		objThief.grabItem( new Weapon(shortSword), true );
+		objThief.grabItem( new HealthPotion(whitePotion), false );
+		objThief.addXP(40);
+		objThief.setDexterity(40);
+		objThief.setConstitution(28);		
+
+		Knight niilistaKnight = new Knight( "Se você parar pra pensar eu não existo", 17 );
+		niilistaKnight.grabItem( new Armor(fullMetalArmor), true );
+		niilistaKnight.grabItem( new Weapon(maca), true );
+		niilistaKnight.grabItem( new Weapon(maca), true );
+		niilistaKnight.grabItem( new HealthPotion(greatPotion), false );
+		niilistaKnight.addXP(40);
+		niilistaKnight.setConstitution( 60 );
+		niilistaKnight.setStrength( 50 );
+
+		Thief conhecidoThief = new Thief( "Aquele que você sabe quem é", 45 );
+		conhecidoThief.grabItem( new Weapon(knife), true );
+		conhecidoThief.grabItem( new Weapon(knife), true );
+		conhecidoThief.grabItem( new Armor(leatherArmor), true );
+		conhecidoThief.grabItem( new HealthPotion(minorPotion), false );
+		conhecidoThief.grabItem( new HealthPotion(minorPotion), false );
+		conhecidoThief.addXP(45);
+
+		metaTeam.addChar(objThief);
+		metaTeam.addChar(niilistaKnight);
+		metaTeam.addChar(conhecidoThief);
 
 		// Batalhas e Threads
 		// ===========================================================================================
 
 		Battle battle1;
 		Battle battle2;
+		Battle battle3;
+		Battle battle4;
 
 		Thread t1;
 		Thread t2;
+		Thread t3;
+		Thread t4;
 
 		int buffer;
 		String strBuffer;
 		NetworkMatch onlineMatch;
 		Scanner input = new Scanner(System.in);
 		System.out.println( "Opções disponíveis:\n" +
-									"1 - Iniciar as batalhas\n" +
-									"2 - Hospedar partida pela rede usando o time foo\n" +
-									"3 - Conectar-se a uma partida pela rede usando o time bar\n" +
-									"Digite a opção desejada:\t"
+								"1 - Iniciar as batalhas\n" +
+								"2 - Hospedar partida pela rede usando o time foo\n" +
+								"3 - Conectar-se a uma partida pela rede usando o time bar\n" +
+								"Digite a opção desejada:\t"
 						   );
 		try{
 			buffer = input.nextInt();
@@ -249,20 +360,36 @@ public class Exec {
 				case 1:
 					battle1 = new Battle("Duelo 1", fooTeam, barTeam);
 					battle2 = new Battle("Duelo 2", vilaTeam, brigadaTeam);
+					battle3 = new Battle("Duelo 3", mestreTeam, errorTeam);
+					battle4 = new Battle("Duelo 4", mageTeam, metaTeam);
+
 
 					t1 = new Thread( battle1, "Thread - " + battle1.getName() );
 					t2 = new Thread( battle2, "Thread - " + battle2.getName() );
+					t3 = new Thread( battle3, "Thread - " + battle3.getName() );
+					t4 = new Thread( battle4, "Thread - " + battle4.getName() );
 
 					t1.start();
 					t2.start();
+					t3.start();
+					t4.start();
 
 					t1.join();
 					t2.join();
+					t3.join();
+					t4.join();
 
 					System.out.println( barTeam.toString() + barTeam.getResults() );
 					System.out.println( fooTeam.toString() + fooTeam.getResults() );
+
 					System.out.println( vilaTeam.toString() + vilaTeam.getResults() );
 					System.out.println( brigadaTeam.toString() + brigadaTeam.getResults() );
+
+					System.out.println( mestreTeam.toString() + mestreTeam.getResults() );
+					System.out.println( errorTeam.toString() + errorTeam.getResults() );
+			
+					System.out.println( mageTeam.toString() + mageTeam.getResults() );
+					System.out.println( metaTeam.toString() + metaTeam.getResults() );
 					break;
 				case 2:
 					onlineMatch = new NetworkMatch(fooTeam);

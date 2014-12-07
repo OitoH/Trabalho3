@@ -11,8 +11,6 @@ public class Battle implements Runnable{
 	private String battleName;
 	private Team teamA;
 	private Team teamB;
-	//private int result; // Faz referência ao time vencedor da batalha.
-						// 1 -> Vitória de 'teamA; -1 -> Vitória de 'teamB'; 0 -> Empate ou batalha não ocorrida
 
 	/* Construtor */
 	public Battle (String name, Team teamA, Team teamB){
